@@ -1,9 +1,6 @@
 package com.arman.spring.testfordi.test;
 
-import com.arman.spring.testfordi.test.controller.ConstructorInjectedController;
-import com.arman.spring.testfordi.test.controller.MyController;
-import com.arman.spring.testfordi.test.controller.PropertyInjectedController;
-import com.arman.spring.testfordi.test.controller.SetterInjectedController;
+import com.arman.spring.testfordi.test.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SpringDiTestApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpringDiTestApplication.class, args);
+
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
 
         MyController myController = (MyController) ctx.getBean("myController");
 
